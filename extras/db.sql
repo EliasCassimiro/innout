@@ -1,6 +1,11 @@
+create database innout;
+
 USE INNOUT;
 
+select * from users;
+
 DROP TABLE IF EXISTS working_hours, users;
+
 CREATE TABLE users (
     id INT(6) AUTO_INCREMENT PRIMARY KEY, 
     name VARCHAR(100) NOT NULL,
