@@ -1,14 +1,16 @@
 <?php
     loadModel('login');
+    $exception = null;
 
     if(count($_POST) > 0){
         $login = new Login($_POST);
         try{
             $user = $login -> checkLogin();
             echo "Usuario {$user -> name} logado :)";
-        }catch(Exception $e){
-            echo 'Falha no login :(';
+        }catch(AppException $e){
+            $exception = $e;
+            //echo $e -> getMessage();
         }
     }
-    loadView('login', $_POST);
+    loadView('login', $_POST + ['exception' => $exception]);
 ?>

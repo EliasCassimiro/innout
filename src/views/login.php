@@ -22,11 +22,12 @@
             </div>
 
             <div class="card-body">
-                <div class="card-body">
+                <?php include(TEMPLATE_PATH . '/messages.php') ?>
+                <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" class="form-control"  value ="<?= $email ?>" placeholder="Informe o e-mail" autofocus>
                 </div>
-                <div class="card-body">
+                <div class="form-group">
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password" class="form-control" placeholder="Informe o senha" autofocus>
                 </div>
