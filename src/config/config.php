@@ -6,8 +6,10 @@
     //Pastas
     define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
     define('VIEWS_PATH', realpath(dirname(__FILE__) . '/../views'));
+    define('CONTROLLLER_PATH', realpath(dirname(__FILE__) . '/../controllers'));
 
     //Arquivos
     require_once(realpath(dirname(__FILE__) . '/database.php'));
+    require_once(realpath(dirname(__FILE__) . '/loader.php'));
     require_once(realpath(MODEL_PATH . '/Model.php'));
 ?>
