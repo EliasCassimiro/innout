@@ -1,6 +1,10 @@
 <?php
     require_once(dirname(__FILE__, 2) . '/src/config/config.php');
-    require_once(CONTROLLLER_PATH . '/login.php');
+    
+    $uri = urldecode( parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
-    loadView('login', ['texto' => 'abc123']);
+    if($uri === '/' || $uri === '' || $uri === '/index.php'){
+        $uri = '/login.php';
+    }
+    require_once(CONTROLLLER_PATH . "/{$uri}");
 ?>
