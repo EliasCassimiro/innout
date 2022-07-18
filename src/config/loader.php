@@ -21,9 +21,9 @@
             }
         }
 
-        //require_once(TEMPLATE_PATH . "/header.php");
-        //require_once(VIEWS_PATH . "/menu.php");
+        require_once(TEMPLATE_PATH . "/header.php");
+        require_once(VIEWS_PATH . "/left.php");
         require_once(TEMPLATE_PATH . "/{$viewName}.php");
-        //require_once(TEMPLATE_PATH  . "/footer.php");
+        require_once(TEMPLATE_PATH  . "/footer.php");
     }
 ?>
