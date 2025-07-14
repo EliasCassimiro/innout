@@ -1,5 +1,5 @@
 <?php
-require_once(realpath(MODEL_PATCH . '/Model.php'));
+    require_once(realpath(MODEL_PATCH . '/Model.php'));
     class Model {
         protected static $tableName = 'users';
         protected static $columns = [];
@@ -23,6 +23,13 @@ require_once(realpath(MODEL_PATCH . '/Model.php'));
 
         public function __set($key, $value){
             $this -> values[$key] = $value;
+        }
+
+        public static function getOne($filters = [], $columns = '*'){
+            $class = get_called_class();
+            $result = static::getResultSetFromSelect($filters, $columns );
+
+            return $result ? new $class($result -> fetch_assoc()) : null;
         }
 
         public static function get($filters = [], $columns = '*'){
