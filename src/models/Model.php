@@ -1,5 +1,5 @@
 <?php
-    require_once(realpath(MODEL_PATCH . '/Model.php'));
+    require_once(realpath(MODEL_PATH . '/Model.php'));
     class Model {
         protected static $tableName = 'users';
         protected static $columns = [];

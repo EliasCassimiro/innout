@@ -6,6 +6,6 @@
         $uri = '/login.php';
     }
 
-        require_once (CONTROLLER_PATCH . "/{$uri}.php");
+        require_once (CONTROLLER_PATH . "/{$uri}.php");
 ?>
 

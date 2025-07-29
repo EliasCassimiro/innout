@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="card-body">
-                    <?php include(TEMPLATE_PATCH . '/messages.php'); ?>
+                    <?php include(TEMPLATE_PATH . '/messages.php'); ?>
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" class="form-control <?= $exception -> get('email') ? 'is-invalid' : '' ?>" value="<?= $email ?>" placeholder="Informe o e-mail" autofocus>
