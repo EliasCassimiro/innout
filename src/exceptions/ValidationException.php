@@ -4,15 +4,15 @@
 
         public function __construct ($errors = [], $message = 'Erros de Validação', $code = 0, $previous = null) {
             parent::__construct ($message, $code, $previous);
-            $this -> errors = $errors;
+            $this->errors = $errors;
         }
 
         public function getErrors() {
-            return $this -> errors;
+            return $this->errors;
         }
 
         public function get($att) {
-            return $this -> errors[$att];
+            return $this->errors[$att];
         }
     }
 ?>  
