@@ -48,3 +48,4 @@ INSERT INTO users (id, name, password, email, start_date, end_date, is_admin)
 VALUES (5, 'Quico', '$2y$10$/vC1UKrEJQUZLN2iM3U9re/4DQP74sXCOVXlYXe/j9zuv1/MHD4o.', 'quico@cod3r.com.br', '2000-1-1', '2019-1-1', 0);
 
 SELECT * FROM users;
+SELECT * FROM working_hours;

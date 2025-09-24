@@ -1,6 +1,10 @@
 <?php
     $errors = [];
-    if($exception){
+
+    if(isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+        unset($_SESSION['message']);
+    } else ($exception){
         $message = [
             'type' => 'error',
             'message' => $exception->getMessage()
