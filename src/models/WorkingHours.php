@@ -46,6 +46,7 @@
             }
 
             $this->$timeColumn = $time;
+            $this->worked_time = getSecondsFromDateInterval($this->getWorkedInterval());
             if($this->id) {
                 $this->update();
             } else {
@@ -90,6 +91,25 @@
                 $total = sumIntervals($workDay, $this -> getLunchInterval());
                 return $t1 -> add($total);
             }
+        }
+
+        public static function getMonthlyReport($userId, $date) {
+            $registries = [];
+            $startDate = getFirstDayOffMonth($date)->format("Y-m-d");
+            $endDate = getLastDayOffMonth($date)->format("Y-m-d");
+
+            $result = static::getResultSetFromSelect([
+                'user_id' => $userId,
+                'raw' => "work_date between '{$startDate}' AND '{$endDate}'"
+            ]);
+
+            if($result) {
+                while($row = $result->fetch_assoc()){
+                    $registries[$row['work_date']] = new WorkingHours($row);
+                }
+            }
+
+            return $registries;
         }
 
         private function getTimes() {
