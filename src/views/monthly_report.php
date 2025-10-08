@@ -1,4 +1,4 @@
-<main>
+<main class="content">
     <?php
         renderTitle(
             'Relatório Mensal',
