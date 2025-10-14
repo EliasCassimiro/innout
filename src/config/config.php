@@ -1,6 +1,8 @@
 <?php
+    header('Content-Type: text/html; charset=utf-8');
     date_default_timezone_set('America/Sao_Paulo');
-    setlocale(LC_TIME, 'pt_BR', 'pt_BR.uft-8', 'portuguese');
+    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf8', 'portuguese');
+
 
     // Constantes gerais
     define('DAILY_TIME', 60 * 60 * 8);
