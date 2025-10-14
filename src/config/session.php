@@ -5,7 +5,7 @@
             header('Location: login.php');
             exit();
         } elseif($requiresAdmin && !$user->is_admin) {
-            addErrorMsg('Acesso negado!')
+            addErrorMsg('Acesso negado!');
             header('Location: day_records.php');
             exit();
         }

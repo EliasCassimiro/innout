@@ -6,7 +6,7 @@
     function loadView($viewName, $params = array()) {
         if(count($params) > 0) {
             foreach($params as $key => $value) {
-                if(strlen() > 0) {
+                if(strlen($key) > 0) {
                     ${$key} = $value;
                 }
             }
@@ -17,7 +17,7 @@
     function loadTemplateView($viewName, $params = array()) {
         if(count($params) > 0) {
             foreach($params as $key => $value) {
-                if(strlen() > 0) {
+                if(strlen($key) > 0) {
                     ${$key} = $value;
                 }
             }
@@ -35,7 +35,7 @@
         require_once(TEMPLATE_PATH . "/footer.php");
     }
 
-    function renderTitle($title, $subtitle, $icon=null) {
+    function renderTitle($title, $subtitle, $icon = null) {
         require_once(TEMPLATE_PATH . "/title.php");
     }
 ?>
