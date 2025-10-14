@@ -2,15 +2,15 @@
     session_start();
     requireValidSession(true);
 
-    $activeUserCount = User::getActiveUsersCount();
+    $activeUsersCount = User::getActiveUsersCount();
     $absentUsers = WorkingHours::getAbsentUsers();
     $yearAndMonth = (new DateTime())->format('Y-m');
     $seconds = WorkingHours::getWorkedTimeInMonth($yearAndMonth);
-    $hoursInMonth = explode(':', getTimeStringFromSeconds($seconds)) [0];
+    $hoursInMonth = explode(':', getTimeStringFromSeconds($seconds))[0];
 
     loadTemplateView('manager_report', [
-        'activeUsersCount' => $activeUserCount,
+        'activeUsersCount' => $activeUsersCount,
         'absentUsers' => $absentUsers,
-        'hoursInMonth' => $hoursInMonth
+        'hoursInMonth' => $hoursInMonth,
     ]);
 ?>

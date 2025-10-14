@@ -1,8 +1,6 @@
 <?php
-
-
     Database::executeSQL('DELETE FROM working_hours');
-    Database::executeSQL('DELETE FROM users WHERE id>5');
+    Database::executeSQL('DELETE FROM users WHERE id > 5');
 
     function getDayTemplateByOdds($regularRate, $extraRate, $lazyRate) {
         $regularDayTemplate = [
@@ -12,27 +10,27 @@
             'time4' => '17:00:00',
             'worked_time' => DAILY_TIME
         ];
-
+        
         $extraHourDayTemplate = [
-            'time1' => '08:30:00',
-            'time2' => '12:00:00',
-            'time3' => '13:00:00',
-            'time4' => '17:00:00',
-            'worked_time' => DAILY_TIME + 3600
-        ];
-
-        $lazyDayTemplate = [
             'time1' => '08:00:00',
             'time2' => '12:00:00',
             'time3' => '13:00:00',
             'time4' => '18:00:00',
+            'worked_time' => DAILY_TIME + 3600
+        ];
+        
+        $lazyDayTemplate = [
+            'time1' => '08:30:00',
+            'time2' => '12:00:00',
+            'time3' => '13:00:00',
+            'time4' => '17:00:00',
             'worked_time' => DAILY_TIME - 1800
         ];
-
-        $value = rand(0 , 100);
+        
+        $value = rand(0, 100);
         if($value <= $regularRate) {
             return $regularDayTemplate;
-        } else ($value <= $regularRate + $extraRate) {
+        } elseif($value <= $regularRate + $extraRate) {
             return $extraHourDayTemplate;
         } else {
             return $lazyDayTemplate;
@@ -50,9 +48,9 @@
                 $template = getDayTemplateByOdds($regularRate, $extraRate, $lazyRate);
                 $columns = array_merge($columns, $template);
                 $workingHours = new WorkingHours($columns);
-                $workingHours -> insert();
+                $workingHours->insert();
             }
-            $currentDate = getNextDay($currentDate) -> format('Y-m-d');
+            $currentDate = getNextDay($currentDate)->format('Y-m-d');
             $columns['work_date'] = $currentDate;
         }
     }
@@ -62,6 +60,5 @@
     populateWorkingHours(3, date('Y-m-d', $lastMonth), 20, 75, 5);
     populateWorkingHours(4, date('Y-m-d', $lastMonth), 20, 10, 70);
 
-    echo 'Tudo certo';
-    //print_r(getDayTemplateByOdds(90, 5, 5));
+    echo 'Tudo certo :)';
 ?>

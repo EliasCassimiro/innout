@@ -2,9 +2,8 @@
     session_start();
     requireValidSession();
 
-
-    $user = $SESSION['user'];
-    $userWorkingHours = WorkingHours::loadFromUserAndDate($user->, date('Y-m-d'));
+    $user = $_SESSION['user'];
+    $records = WorkingHours::loadFromUserAndDate($user->id, date('Y-m-d'));
 
     try {
         $currentTime = strftime('%H:%M:%S', time());
@@ -15,8 +14,9 @@
 
         $records->innout($currentTime);
         addSuccessMsg('Ponto inserido com sucesso!');
-    } catch (AppException $e) {
-        addSuccessMsg($e->getMessage());
+    } catch(AppException $e) {
+        addErrorMsg($e->getMessage());
     }
+
     header('Location: day_records.php');
 ?>
